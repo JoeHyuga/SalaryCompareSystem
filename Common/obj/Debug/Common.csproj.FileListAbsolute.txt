@@ -1,0 +1,6 @@
+G:\项目\Asp.net源码\SalaryCompareSystem\Common\bin\Debug\Common.dll
+G:\项目\Asp.net源码\SalaryCompareSystem\Common\bin\Debug\Common.pdb
+G:\项目\Asp.net源码\SalaryCompareSystem\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+G:\项目\Asp.net源码\SalaryCompareSystem\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+G:\项目\Asp.net源码\SalaryCompareSystem\Common\obj\Debug\Common.dll
+G:\项目\Asp.net源码\SalaryCompareSystem\Common\obj\Debug\Common.pdb

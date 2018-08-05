@@ -1,0 +1,14 @@
+﻿
+<div ng-controller="CompanyController">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>公司名称</th>
+                <th>描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in Infos"><td>{{x.CompanyName}}</td><td>{{x.CompanyDescription}}</td></tr>
+        </tbody>
+    </table>
+</div>
