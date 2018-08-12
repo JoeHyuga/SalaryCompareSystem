@@ -13,7 +13,7 @@ namespace Domain.IConcrete
 
         List<CompanyInfo> GetCompanyInfo();
 
-        void Add(CompanyInfo company);
+        bool Add(CompanyInfo company);
 
         void Delete(int id);
 

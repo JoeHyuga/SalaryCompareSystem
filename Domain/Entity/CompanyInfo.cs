@@ -17,5 +17,15 @@ namespace Domain.Entity
         public string CompanyName { get; set; }
         [Required]
         public string CompanyDescription { get; set; }
+        [Required]
+        public string CompanySize { get; set; }
+        [Required]
+        public string CompanyIndustry { get; set; }
+        [Required]
+        public string CompanyBuildDate { get; set; }
+        [Required]
+        public string RegisteredCapital { get; set; }
+        [Required]
+        public string CompanyAddress { get; set; }
     }
 }

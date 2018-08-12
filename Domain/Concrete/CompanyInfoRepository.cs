@@ -12,10 +12,12 @@ namespace Domain.Concrete
     {
         EFDbContext db = new EFDbContext();
 
-        public void Add(CompanyInfo company)
+        public bool Add(CompanyInfo company)
         {
             db.CompanyInfo.Add(company);
             var i= db.SaveChanges();
+
+            return i > 0 ? true : false;
         }
 
         public void Delete(int id)

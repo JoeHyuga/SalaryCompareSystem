@@ -9,3 +9,14 @@ G:\项目\Asp.net源码\SalaryCompareSystem\Domain\obj\Debug\Domain.csprojResolv
 G:\项目\Asp.net源码\SalaryCompareSystem\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
 G:\项目\Asp.net源码\SalaryCompareSystem\Domain\obj\Debug\Domain.dll
 G:\项目\Asp.net源码\SalaryCompareSystem\Domain\obj\Debug\Domain.pdb
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\bin\Debug\Domain.dll.config
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\bin\Debug\Domain.dll
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\bin\Debug\Domain.pdb
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\bin\Debug\EntityFramework.dll
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\bin\Debug\EntityFramework.SqlServer.dll
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\bin\Debug\EntityFramework.xml
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\bin\Debug\EntityFramework.SqlServer.xml
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\obj\Debug\Domain.dll
+G:\项目\Asp.net源码\SalaryCompare\SalaryCompareSystem\Domain\obj\Debug\Domain.pdb

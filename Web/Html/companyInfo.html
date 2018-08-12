@@ -1,18 +1,35 @@
 ﻿
 <div ng-controller="CompanyController">
     <div style="float:right">
-        <a href="#companyInfoEdit" class="btn btn-default">添加公司信息</a>
+        <a href="#companyInfoEdit" class="btn btn-default">添加</a>
+        <a ng-click="Update()" class="btn btn-default">编辑</a>
+        <a ng-click="Delete()" class="btn btn-danger">删除</a>
     </div>
     <div>
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th><input type="checkbox" ng-model="allck" ng-click="SelectAll()" /></th>
                     <th>公司名称</th>
+                    <th>公司规模</th>
+                    <th>服务行业</th>
+                    <th>成立时间</th>
+                    <th>注册资金</th>
+                    <th>公司地址</th>
                     <th>描述</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="x in Infos"><td>{{x.CompanyName}}</td><td>{{x.CompanyDescription}}</td></tr>
+                <tr ng-repeat="x in Infos">
+                    <td><input id="ck{{x.Id}}" name="ck" type="checkbox" ng-click="Select(x.Id)" /></td>
+                    <td>{{x.CompanyName}}</td>
+                    <td>{{x.CompanySize}}</td>
+                    <td>{{x.CompanyIndustry}}</td>
+                    <td>{{x.CompanyBuildDate}}</td>
+                    <td>{{x.CompanyAddress}}</td>
+                    <td>{{x.RegisteredCapital}}</td>
+                    <td>{{x.CompanyDescription}}</td>
+                </tr>
             </tbody>
         </table>
     </div>
