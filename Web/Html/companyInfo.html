@@ -21,7 +21,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="x in Infos">
-                    <td><input id="ck{{x.Id}}" name="ck" type="checkbox" ng-click="Select(x.Id)" /></td>
+                    <td><input id="ck{{x.Id}}" name="ck" type="checkbox" ng-click="Select(x.Id)" value="{{x.Id}}" /></td>
                     <td>{{x.CompanyName}}</td>
                     <td>{{x.CompanySize}}</td>
                     <td>{{x.CompanyIndustry}}</td>

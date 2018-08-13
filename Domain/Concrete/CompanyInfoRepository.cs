@@ -20,14 +20,19 @@ namespace Domain.Concrete
             return i > 0 ? true : false;
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var entity = GetCompanyInfo(id);
+            db.CompanyInfo.Remove(entity);
+            var i = db.SaveChanges();
+
+            return i > 0 ? true : false;
         }
 
         public CompanyInfo GetCompanyInfo(int id)
         {
-            throw new NotImplementedException();
+            var entity = db.CompanyInfo.Where(p => p.Id == id).FirstOrDefault();
+            return entity;
         }
 
         public List<CompanyInfo> GetCompanyInfo()

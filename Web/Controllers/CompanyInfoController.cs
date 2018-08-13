@@ -55,5 +55,22 @@ namespace Web.Controllers
 
             return result;
         }
+
+        [HttpPost]
+        public ApiResult<DBNull, DBNull> DeleteCompanyInfo()
+        {
+            string Ids = HttpContext.Current.Request["Ids"].ToString();
+
+            var result = new ApiResult<DBNull, DBNull>();
+            var arryId = Ids.Split(',');
+            var bresult = true;
+            for (int i = 0; i <arryId.Length; i++)
+            {
+                bresult = bresult & rep.Delete(Convert.ToInt32(arryId[i]));
+            }
+
+            result.success = bresult;
+            return result;
+        }
     }
 }

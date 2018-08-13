@@ -1,38 +1,46 @@
 ﻿app.controller('CompanyController', function ($scope, $http) {
-    $http({
-        method: 'GET',
-        url: '/api/CompanyInfo/GetCompanyInfo'
-    }).then(function successCallback(response) {
-        $scope.Infos = response.data.rows;
-    }, function errorCallback(response) {
+    $scope.LoadDate = function () {
+        $http({
+            method: 'GET',
+            url: '/api/CompanyInfo/GetCompanyInfo'
+        }).then(function successCallback(response) {
+            $scope.Infos = response.data.rows;
+        }, function errorCallback(response) {
 
-    });
+        });
+    }
+    $scope.LoadDate();
 
     $scope.Delete = function () {
-
+        $.post('/api/CompanyInfo/DeleteCompanyInfo',
+            {
+                Ids: $scope.arryId.join(',')
+            }, function (data) {
+                if (data.success) {
+                    alert("删除成功");
+                }
+                else {
+                    alert('删除失败');
+                }
+                $scope.LoadDate();
+            });
     }
 
     $scope.Update = function () { }
 
-    $scope.allck = false;
+    $scope.allck=false;
     $scope.SelectAll = function () {
-        if ($scope.allck == false) {
-            $scope.arryId.splice(0, $scope.arryId.length);//清空数组
-            $('input[name="id"]').attr("checked", false);
-        }
-        else {
-            
-        }
+        var cks = document.getElementsByName('ck');
+        $scope.arryId.splice(0, $scope.arryId.length);
 
-        for (var i = 0; i < $scope.Infos.length; i++) {
-            if ($scope.allck == true) {
-                document.getElementById("ck" + i).checked = true;
-                $scope.arryId.push($scope.Infos[i].Id);
+        for (var i = 0; i < cks.length; i++) {
+            if (!$scope.allck) {
+                $scope.arryId.push(cks[i].value);
             }
             else {
-                document.getElementById("ck" + i).checked = false;
-                $scope.arryId.splice($.inArray($scope.Infos[i].Id, $scope.arryId), 1);
+                $scope.arryId.splice(0, $scope.arryId.length);
             }
+            cks[i].checked = !$scope.allck;
         }
     }
 

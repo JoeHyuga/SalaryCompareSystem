@@ -15,7 +15,7 @@ namespace Domain.IConcrete
 
         bool Add(CompanyInfo company);
 
-        void Delete(int id);
+        bool Delete(int id);
 
         void Update(CompanyInfo company);
     }
