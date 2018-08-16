@@ -21,24 +21,31 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public ApiResult<DBNull, CompanyInfo> GetCompanyInfo()
+        public ApiResult<DBNull, CompanyInfo> GetCompanyInfoes()
         {
-            var data=rep.GetCompanyInfo();
             var result = new ApiResult<DBNull, CompanyInfo>();
-            result.rows = data;
+            try
+            {
+                result.rows = rep.GetCompanyInfo();
+                result.success = true;
+            }
+            catch (Exception ex)
+            {
+                result.message = ex.Message;
+            }
             return result;
         }
 
         [HttpPost]
         public ApiResult<DBNull, DBNull> AddCompanyInfo()
         {
-            string name= HttpContext.Current.Request["name"].ToString();
+            string name = HttpContext.Current.Request["name"].ToString();
             string description = HttpContext.Current.Request["description"].ToString();
-            string size= HttpContext.Current.Request["size"].ToString();
-            string industry= HttpContext.Current.Request["industry"].ToString();
-            string build= HttpContext.Current.Request["build"].ToString();
-            string captial= HttpContext.Current.Request["captial"].ToString();
-            string address= HttpContext.Current.Request["address"].ToString();
+            string size = HttpContext.Current.Request["size"].ToString();
+            string industry = HttpContext.Current.Request["industry"].ToString();
+            string build = HttpContext.Current.Request["build"].ToString();
+            string captial = HttpContext.Current.Request["captial"].ToString();
+            string address = HttpContext.Current.Request["address"].ToString();
             CompanyInfo info = new CompanyInfo()
             {
                 CompanyName = name,
@@ -46,8 +53,8 @@ namespace Web.Controllers
                 CompanySize = size,
                 CompanyAddress = address,
                 CompanyIndustry = industry,
-                RegisteredCapital=captial,
-                CompanyBuildDate=build
+                RegisteredCapital = captial,
+                CompanyBuildDate = build
             };
 
             var result = new ApiResult<DBNull, DBNull>();
@@ -59,17 +66,29 @@ namespace Web.Controllers
         [HttpPost]
         public ApiResult<DBNull, DBNull> DeleteCompanyInfo()
         {
-            string Ids = HttpContext.Current.Request["Ids"].ToString();
-
             var result = new ApiResult<DBNull, DBNull>();
-            var arryId = Ids.Split(',');
-            var bresult = true;
-            for (int i = 0; i <arryId.Length; i++)
+            try
             {
-                bresult = bresult & rep.Delete(Convert.ToInt32(arryId[i]));
+                string Ids = HttpContext.Current.Request["Ids"].ToString();
+                var arryId = Ids.Split(',');
+                var bresult = true;
+                for (int i = 0; i < arryId.Length; i++)
+                {
+                    bresult = bresult & rep.Delete(Convert.ToInt32(arryId[i]));
+                }
+                result.success = bresult;
             }
+            catch (Exception ex)
+            {
+                result.message = ex.Message;
+            }
+            return result;
+        }
 
-            result.success = bresult;
+        [HttpPost]
+        public ApiResult<DBNull, DBNull> UpdateCompanyInfo()
+        {
+            var result = new ApiResult<DBNull, DBNull>();
             return result;
         }
     }

@@ -13,6 +13,10 @@
             }, function (data) {
                 if (data.success) {
                     alert("保存成功");
+                    window.location = '#home';
+                }
+                else {
+                    alert("保存失败");
                 }
             });
     }

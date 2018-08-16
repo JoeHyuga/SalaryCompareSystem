@@ -2,9 +2,14 @@
     $scope.LoadDate = function () {
         $http({
             method: 'GET',
-            url: '/api/CompanyInfo/GetCompanyInfo'
+            url: '/api/CompanyInfo/GetCompanyInfoes'
         }).then(function successCallback(response) {
-            $scope.Infos = response.data.rows;
+            if (response.data.success) {
+                $scope.Infos = response.data.rows;
+            }
+            else {
+                alert(response.data.message);
+            }
         }, function errorCallback(response) {
 
         });
@@ -12,21 +17,27 @@
     $scope.LoadDate();
 
     $scope.Delete = function () {
-        $.post('/api/CompanyInfo/DeleteCompanyInfo',
-            {
-                Ids: $scope.arryId.join(',')
-            }, function (data) {
-                if (data.success) {
-                    alert("删除成功");
-                }
-                else {
-                    alert('删除失败');
-                }
-                $scope.LoadDate();
-            });
+        var cf = confirm('是否删除');
+        if (cf) {
+            $.post('/api/CompanyInfo/DeleteCompanyInfo',
+                {
+                    Ids: $scope.arryId.join(',')
+                }, function (data) {
+                    if (data.success) {
+                        alert("删除成功");
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                    $scope.LoadDate();
+                });
+        }
+        
     }
 
-    $scope.Update = function () { }
+    $scope.Update = function () {
+
+    }
 
     $scope.allck=false;
     $scope.SelectAll = function () {
