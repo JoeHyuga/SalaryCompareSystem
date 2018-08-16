@@ -1,4 +1,8 @@
-﻿app.controller('CompanyEditController', function ($scope,$http) {
+﻿app.controller('CompanyEditController', function ($scope, $http) {
+    $scope.GetCompanyInfo = function () {
+
+    }
+
 
     $scope.Save = function () {
         $.post('/api/CompanyInfo/AddCompanyInfo',
