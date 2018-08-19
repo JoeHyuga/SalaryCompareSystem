@@ -19,3 +19,28 @@ app.config(function ($routeProvider) {
             redirectTo: '/companyInfo'
         });
 });
+app.factory('pageValueFactory', ['$rootScope', function ($rootScope) {
+    var value = {};
+    value.components = {};
+    value.update = function (v) {
+        this.components = angular.copy(v);
+        $rootScope.$broadcast('pageValue');
+    };
+
+    return value;
+}]);
+//app.factory('valueFactory', function () {
+//    var object = [];
+//    var _setter = function (data) {
+//        object.push(data);
+//    };
+
+//    var _getter = function () {
+//        return object;
+//    };
+
+//    return {
+//        setter: _setter,
+//        getter: _getter
+//    }
+//});

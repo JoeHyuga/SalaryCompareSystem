@@ -1,4 +1,4 @@
-﻿app.controller('CompanyController', function ($scope, $http) {
+﻿app.controller('CompanyController', function ($scope, $http, pageValueFactory) {
     $scope.LoadDate = function () {
         $http({
             method: 'GET',
@@ -17,26 +17,36 @@
     $scope.LoadDate();
 
     $scope.Delete = function () {
-        var cf = confirm('是否删除');
-        if (cf) {
-            $.post('/api/CompanyInfo/DeleteCompanyInfo',
-                {
-                    Ids: $scope.arryId.join(',')
-                }, function (data) {
-                    if (data.success) {
-                        alert("删除成功");
-                    }
-                    else {
-                        alert(data.message);
-                    }
-                    $scope.LoadDate();
-                });
+        if ($scope.arryId.length > 0) {
+            var cf = confirm('是否删除');
+            if (cf) {
+                $.post('/api/CompanyInfo/DeleteCompanyInfo',
+                    {
+                        Ids: $scope.arryId.join(',')
+                    }, function (data) {
+                        if (data.success) {
+                            alert("删除成功");
+                        }
+                        else {
+                            alert(data.message);
+                        }
+                        $scope.LoadDate();
+                    });
+            }
         }
         
     }
 
     $scope.Update = function () {
+        if ($scope.arryId.length>0) {
+            var value = {};
+            value['Id'] = $scope.arryId.join(',');
+            $scope.$watch('components', function () {
+                pageValueFactory.update(value);
+            });
 
+            window.location = '#companyInfoEdit';
+        }
     }
 
     $scope.allck=false;

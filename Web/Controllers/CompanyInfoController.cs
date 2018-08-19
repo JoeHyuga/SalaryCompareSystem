@@ -37,8 +37,29 @@ namespace Web.Controllers
         }
 
         [HttpPost]
+        public ApiResult<CompanyInfo, DBNull> GetCompanyInfo()
+        {
+            var result = new ApiResult<CompanyInfo, DBNull>();
+            try
+            {
+                string Id = HttpContext.Current.Request["Id"].ToString();
+                var obj=rep.GetCompanyInfo(Convert.ToInt32(Id));
+                result.obj = obj;
+                result.success = true;
+            }
+            catch (Exception ex)
+            {
+                result.message = ex.Message;
+            }
+
+            return result;
+        }
+
+        [HttpPost]
         public ApiResult<DBNull, DBNull> AddCompanyInfo()
         {
+            string id = HttpContext.Current.Request["id"].ToString();
+            int iid = string.IsNullOrEmpty(id) ? -1 : Convert.ToInt32(id);
             string name = HttpContext.Current.Request["name"].ToString();
             string description = HttpContext.Current.Request["description"].ToString();
             string size = HttpContext.Current.Request["size"].ToString();
@@ -48,6 +69,7 @@ namespace Web.Controllers
             string address = HttpContext.Current.Request["address"].ToString();
             CompanyInfo info = new CompanyInfo()
             {
+                Id= iid,
                 CompanyName = name,
                 CompanyDescription = description,
                 CompanySize = size,

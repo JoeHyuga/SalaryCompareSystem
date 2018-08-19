@@ -14,7 +14,20 @@ namespace Domain.Concrete
 
         public bool Add(CompanyInfo company)
         {
-            db.CompanyInfo.Add(company);
+            var entity = GetCompanyInfo(company.Id);
+            if (entity == null)
+            {
+                db.CompanyInfo.Add(company);
+            }
+            else
+            {
+                entity.CompanyName = company.CompanyName;
+                entity.CompanySize = company.CompanySize;
+                entity.CompanyIndustry = company.CompanyIndustry;
+                entity.CompanyDescription = company.CompanyDescription;
+                entity.CompanyBuildDate = company.CompanyBuildDate;
+                entity.CompanyAddress = company.CompanyAddress;
+            }
             var i= db.SaveChanges();
 
             return i > 0 ? true : false;
