@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Concrete\CompanyInfoRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Entity\CompanyDetails.cs" />
     <Compile Include="Entity\CompanyInfo.cs" />
     <Compile Include="IConcrete\ICompanyInfoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

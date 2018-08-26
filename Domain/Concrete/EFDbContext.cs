@@ -12,6 +12,8 @@ namespace Domain.Concrete
     {
         public EFDbContext() : base("name=EFDbContext")
         { }
-        public DbSet<CompanyInfo> CompanyInfo { get; set; }
+        public DbSet<CompanyInfo> dbCompanyInfo { get; set; }
+
+        public DbSet<CompanyDetails> dbCompanyDetails { get; set; }
     }
 }

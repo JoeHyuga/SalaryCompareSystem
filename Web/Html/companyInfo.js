@@ -25,7 +25,7 @@
                         Ids: $scope.arryId.join(',')
                     }, function (data) {
                         if (data.success) {
-                            alert("删除成功");
+                            //alert("删除成功");
                         }
                         else {
                             alert(data.message);

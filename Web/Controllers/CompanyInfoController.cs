@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using BLL;
+using Common;
 using Domain.Entity;
 using Domain.IConcrete;
 using System;
@@ -13,12 +14,7 @@ namespace Web.Controllers
 {
     public class CompanyInfoController : ApiController
     {
-        public ICompanyInfoRepository rep;
-
-        public CompanyInfoController(ICompanyInfoRepository _rep)
-        {
-            rep = _rep;
-        }
+        public ICompanyInfoRepository rep { get; set; }
 
         [HttpGet]
         public ApiResult<DBNull, CompanyInfo> GetCompanyInfoes()
@@ -43,7 +39,7 @@ namespace Web.Controllers
             try
             {
                 string Id = HttpContext.Current.Request["Id"].ToString();
-                var obj=rep.GetCompanyInfo(Convert.ToInt32(Id));
+                var obj = rep.GetCompanyInfo(Convert.ToInt32(Id));
                 result.obj = obj;
                 result.success = true;
             }
@@ -69,7 +65,7 @@ namespace Web.Controllers
             string address = HttpContext.Current.Request["address"].ToString();
             CompanyInfo info = new CompanyInfo()
             {
-                Id= iid,
+                Id = iid,
                 CompanyName = name,
                 CompanyDescription = description,
                 CompanySize = size,
@@ -111,6 +107,31 @@ namespace Web.Controllers
         public ApiResult<DBNull, DBNull> UpdateCompanyInfo()
         {
             var result = new ApiResult<DBNull, DBNull>();
+            return result;
+        }
+
+        [HttpPost]
+        public ApiResult<DBNull, DBNull> SearchAddress()
+        {
+            var result = new ApiResult<DBNull, DBNull>();
+            try
+            {
+                string keywords = HttpContext.Current.Request["keywords"].ToString();
+                if (string.IsNullOrEmpty(keywords))
+                {
+                    result.success = false;
+                    result.message = "地址不能为空";
+                }
+                else
+                {
+                    CompanyBll.SearchAddress(keywords);
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.message = ex.Message;
+            }
             return result;
         }
     }

@@ -51,4 +51,12 @@
                 }
             });
     }
+
+    $scope.SearchAddress = function () {
+        $.post('/api/CompanyInfo/SearchAddress', {
+            keywords: $scope.address
+        }, function (data) {
+            console.log(data)
+        });
+    }
 });

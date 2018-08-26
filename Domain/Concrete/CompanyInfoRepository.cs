@@ -17,7 +17,7 @@ namespace Domain.Concrete
             var entity = GetCompanyInfo(company.Id);
             if (entity == null)
             {
-                db.CompanyInfo.Add(company);
+                db.dbCompanyInfo.Add(company);
             }
             else
             {
@@ -36,7 +36,7 @@ namespace Domain.Concrete
         public bool Delete(int id)
         {
             var entity = GetCompanyInfo(id);
-            db.CompanyInfo.Remove(entity);
+            db.dbCompanyInfo.Remove(entity);
             var i = db.SaveChanges();
 
             return i > 0 ? true : false;
@@ -44,13 +44,13 @@ namespace Domain.Concrete
 
         public CompanyInfo GetCompanyInfo(int id)
         {
-            var entity = db.CompanyInfo.Where(p => p.Id == id).FirstOrDefault();
+            var entity = db.dbCompanyInfo.Where(p => p.Id == id).FirstOrDefault();
             return entity;
         }
 
         public List<CompanyInfo> GetCompanyInfo()
         {
-            var info = db.CompanyInfo.ToList();
+            var info = db.dbCompanyInfo.ToList();
             return info;
         }
 
