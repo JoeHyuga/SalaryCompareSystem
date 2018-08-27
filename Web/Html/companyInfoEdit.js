@@ -56,7 +56,10 @@
         $.post('/api/CompanyInfo/SearchAddress', {
             keywords: $scope.address
         }, function (data) {
-            console.log(data)
+            $scope.AddressList = data.obj;
+            if (!$scope.phase || !$scope.$root.phase) {
+                $scope.$apply();
+            }
         });
     }
 });

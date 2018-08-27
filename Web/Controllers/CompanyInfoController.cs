@@ -1,7 +1,9 @@
 ﻿using BLL;
 using Common;
+using Common.Model;
 using Domain.Entity;
 using Domain.IConcrete;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -111,9 +113,9 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ApiResult<DBNull, DBNull> SearchAddress()
+        public ApiResult<MapSearchResult, DBNull> SearchAddress()
         {
-            var result = new ApiResult<DBNull, DBNull>();
+            var result = new ApiResult<MapSearchResult, DBNull>();
             try
             {
                 string keywords = HttpContext.Current.Request["keywords"].ToString();
@@ -124,7 +126,7 @@ namespace Web.Controllers
                 }
                 else
                 {
-                    CompanyBll.SearchAddress(keywords);
+                    result.obj=JsonConvert.DeserializeObject<MapSearchResult>(CompanyBll.SearchAddress(keywords));
                 }
             }
             catch (Exception ex)
