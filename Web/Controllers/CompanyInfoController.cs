@@ -126,7 +126,8 @@ namespace Web.Controllers
                 }
                 else
                 {
-                    result.obj=JsonConvert.DeserializeObject<MapSearchResult>(CompanyBll.SearchAddress(keywords));
+                    //result.obj=JsonConvert.DeserializeObject<MapSearchResult>(CompanyBll.SearchAddress(keywords));
+                    result.obj = CompanyBll.SearchAddress(keywords);
                 }
             }
             catch (Exception ex)

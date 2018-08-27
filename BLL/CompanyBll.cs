@@ -21,7 +21,7 @@ namespace BLL
         /// 用高德地图api搜索地点
         /// </summary>
         /// <param name="address">搜索地点</param>
-        public static string SearchAddress(string address)
+        public static MapSearchResult SearchAddress(string address)
         {
             string url = "https://restapi.amap.com/v3/assistant/inputtips?";//关键字搜索API服务地址
             string key = WebConfigurationManager.AppSettings["MapKey"].ToString();//请求服务权限标识key
@@ -33,8 +33,8 @@ namespace BLL
             //获得返回结果
             string json=Common.CommonMethod.Post(url,dic);
             //将结果反序列化为实体
-            //var result = JsonConvert.DeserializeObject<MapSearchResult>(json);
-            return json;
+            var result = JsonConvert.DeserializeObject<MapSearchResult>(json);
+            return result;
         }
     }
 }
