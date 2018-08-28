@@ -113,9 +113,9 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ApiResult<MapSearchResult, DBNull> SearchAddress()
+        public ApiResult<BaiduMapResult, DBNull> SearchAddress()
         {
-            var result = new ApiResult<MapSearchResult, DBNull>();
+            var result = new ApiResult<BaiduMapResult, DBNull>();
             try
             {
                 string keywords = HttpContext.Current.Request["keywords"].ToString();

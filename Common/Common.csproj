@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,8 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonMethod.cs" />
+    <Compile Include="Factory\MapFactory\BaiduMap.cs" />
+    <Compile Include="Factory\MapFactory\BaiduMapFactory.cs" />
+    <Compile Include="Factory\MapFactory\GaodeMap.cs" />
+    <Compile Include="Factory\MapFactory\GaodeMapFactory.cs" />
+    <Compile Include="Factory\MapFactory\Map.cs" />
+    <Compile Include="Factory\MapFactory\MapFactory.cs" />
     <Compile Include="JsonHelper.cs" />
-    <Compile Include="Model\MapSearchResult.cs" />
+    <Compile Include="Model\BaiduMapResult.cs" />
+    <Compile Include="Model\GaodeMapResult.cs" />
+    <Compile Include="Model\MapResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
