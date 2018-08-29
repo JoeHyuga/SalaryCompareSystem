@@ -68,7 +68,7 @@ namespace Common
                 i++;
             }
 
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url+"?"+ builder.ToString());
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url+ builder.ToString());
             //添加参数
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
             Stream stream = resp.GetResponseStream();

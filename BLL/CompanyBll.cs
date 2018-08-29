@@ -22,13 +22,16 @@ namespace BLL
         /// 用高德地图api搜索地点
         /// </summary>
         /// <param name="address">搜索地点</param>
-        public static BaiduMapResult SearchAddress(string address)
+        public static object SearchAddress(string address)
         {
-            var factory = new BaiduMapFactory();//获取具体工厂
-            var map = factory.CreateMap();//实例化
-            var json = map.SearchAddress(address);
-            //将结果反序列化为实体
-            var result = JsonConvert.DeserializeObject<BaiduMapResult>(json);
+            var mapDll = WebConfigurationManager.AppSettings["MapDll"].ToString();
+            var mapClass = WebConfigurationManager.AppSettings["MapClass"].ToString();
+
+            //var factory=(MapFactory)Activator.CreateInstance(Assembly.Load(mapDll).GetType(mapClass));//通过反射获取具体类
+            var factory = new BaiduMapFactory();
+            var map = factory.CreateMap();//实例化类
+            var json = map.SearchAddress(address);//获取json结果
+            var result = map.JsonToEntity(json);
             return result;
         }
     }

@@ -113,9 +113,9 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ApiResult<BaiduMapResult, DBNull> SearchAddress()
+        public ApiResult<DBNull, Result> SearchAddress()
         {
-            var result = new ApiResult<BaiduMapResult, DBNull>();
+            var result = new ApiResult<DBNull, Result>();
             try
             {
                 string keywords = HttpContext.Current.Request["keywords"].ToString();
@@ -127,7 +127,17 @@ namespace Web.Controllers
                 else
                 {
                     //result.obj=JsonConvert.DeserializeObject<MapSearchResult>(CompanyBll.SearchAddress(keywords));
-                    result.obj = CompanyBll.SearchAddress(keywords);
+                    var map= (BaiduMapResult)CompanyBll.SearchAddress(keywords);
+                    if (map.status == 0)
+                    {
+                        result.rows = map.results;
+                        result.success = true;
+                    }
+                    else
+                    {
+                        result.success = false;
+                        result.message = map.message;
+                    }
                 }
             }
             catch (Exception ex)

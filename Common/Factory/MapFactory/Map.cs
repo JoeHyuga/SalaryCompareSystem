@@ -14,5 +14,11 @@ namespace Common.Factory.MapFactory
         /// <param name="address">关键词</param>
         /// <returns>json结果</returns>
         public abstract string SearchAddress(string address);
+        /// <summary>
+        /// 将json数据反序列化
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public abstract object JsonToEntity(string json);
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Common.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +26,17 @@ namespace Common.Factory.MapFactory
             //获得返回结果
             string json = Common.CommonMethod.Get(url, dic);
             return json;
+        }
+
+        /// <summary>
+        /// 将json数据反序列化
+        /// </summary>
+        /// <param name="json"></param>
+        /// <returns></returns>
+        public override object JsonToEntity(string json)
+        {
+            var result= JsonConvert.DeserializeObject<BaiduMapResult>(json);
+            return result;
         }
     }
 }

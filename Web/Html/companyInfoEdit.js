@@ -53,10 +53,11 @@
     }
 
     $scope.SearchAddress = function () {
+        $scope.AddressList = [];
         $.post('/api/CompanyInfo/SearchAddress', {
             keywords: $scope.address
         }, function (data) {
-            $scope.AddressList = data.obj;
+            $scope.AddressList = data.rows;
             if (!$scope.phase || !$scope.$root.phase) {
                 $scope.$apply();
             }
