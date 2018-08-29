@@ -26,9 +26,8 @@ namespace BLL
         {
             var mapDll = WebConfigurationManager.AppSettings["MapDll"].ToString();
             var mapClass = WebConfigurationManager.AppSettings["MapClass"].ToString();
-
-            //var factory=(MapFactory)Activator.CreateInstance(Assembly.Load(mapDll).GetType(mapClass));//通过反射获取具体类
-            var factory = new BaiduMapFactory();
+            var factory=(MapFactory)Activator.CreateInstance(Assembly.Load(mapDll).GetType(mapClass));//通过反射获取具体类
+            //var factory = new BaiduMapFactory();
             var map = factory.CreateMap();//实例化类
             var json = map.SearchAddress(address);//获取json结果
             var result = map.JsonToEntity(json);
