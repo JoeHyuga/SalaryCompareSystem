@@ -35,9 +35,29 @@ namespace Common.Factory.MapFactory
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public override object  JsonToEntity(string json)
+        public override MapResult  JsonToEntity(string json)
         {
-            var result = JsonConvert.DeserializeObject<GaodeMapResult>(json);
+            //反序列化
+            var map = JsonConvert.DeserializeObject<GaodeMapResult>(json);
+
+            //转换为通用结果
+            var result = new MapResult();
+            result.count = map.count;
+            result.status = map.status=="1"?"0":"1";//百度地图api接口成功判断与高德地图相反
+            result.message = map.info;
+            var list = new List<Result>();
+            foreach (var item in map.tips)
+            {
+                //搜索结果
+                var i = new Result();
+                i.name = item.name;
+                i.location = item.loaction==null? new Location() { lat="0",lng="0"} : new Location() { lat = item.loaction.Split(',')[1], lng = item.loaction.Split(',')[0] };
+                i.uid = item.id;
+                i.address = item.address.ToString().Replace("[]","暂无地址详情") ;
+                i.province = item.district;
+                list.Add(i);
+            }
+            result.list = list;
             return result;
         }
     }

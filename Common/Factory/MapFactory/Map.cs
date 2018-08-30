@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,6 @@ namespace Common.Factory.MapFactory
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public abstract object JsonToEntity(string json);
+        public abstract MapResult JsonToEntity(string json);
     }
 }

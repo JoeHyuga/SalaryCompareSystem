@@ -27,5 +27,7 @@ namespace Domain.Entity
         public string RegisteredCapital { get; set; }
         [Required]
         public string CompanyAddress { get; set; }
+        [Required]
+        public string CompanyLocation { get; set; }
     }
 }

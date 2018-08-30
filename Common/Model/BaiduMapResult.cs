@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Common.Model
 {
-    public class BaiduMapResult:MapResult
+    public class BaiduMapResult
     {
         public int status { get; set; }
+
+        public string message { get; set; }
 
         public List<Result> results { get; set; }
     }
@@ -32,7 +34,13 @@ namespace Common.Model
 
     public class Location
     {
+        /// <summary>
+        /// 纬度
+        /// </summary>
         public string lat { get; set; }
+        /// <summary>
+        /// 经度
+        /// </summary>
         public string lng { get; set; }
     }
 }

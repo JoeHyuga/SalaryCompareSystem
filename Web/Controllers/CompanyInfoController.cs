@@ -65,6 +65,7 @@ namespace Web.Controllers
             string build = HttpContext.Current.Request["build"].ToString();
             string captial = HttpContext.Current.Request["captial"].ToString();
             string address = HttpContext.Current.Request["address"].ToString();
+            string location = HttpContext.Current.Request["xy"].ToString();
             CompanyInfo info = new CompanyInfo()
             {
                 Id = iid,
@@ -74,7 +75,8 @@ namespace Web.Controllers
                 CompanyAddress = address,
                 CompanyIndustry = industry,
                 RegisteredCapital = captial,
-                CompanyBuildDate = build
+                CompanyBuildDate = build,
+                CompanyLocation=location
             };
 
             var result = new ApiResult<DBNull, DBNull>();
@@ -126,11 +128,10 @@ namespace Web.Controllers
                 }
                 else
                 {
-                    //result.obj=JsonConvert.DeserializeObject<MapSearchResult>(CompanyBll.SearchAddress(keywords));
-                    var map= (BaiduMapResult)CompanyBll.SearchAddress(keywords);
-                    if (map.status == 0)
+                    var map=CompanyBll.SearchAddress(keywords);
+                    if (map.status == "0")
                     {
-                        result.rows = map.results;
+                        result.rows = map.list;
                         result.success = true;
                     }
                     else

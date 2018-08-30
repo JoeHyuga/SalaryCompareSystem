@@ -37,7 +37,7 @@ namespace Common.Model
         /// <summary>
         /// 地址
         /// </summary>
-        public string address { get; set; }
+        public object address { get; set; }
         /// <summary>
         /// 经纬度
         /// </summary>

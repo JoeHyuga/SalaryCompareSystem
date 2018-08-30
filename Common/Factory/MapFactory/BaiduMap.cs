@@ -33,9 +33,16 @@ namespace Common.Factory.MapFactory
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public override object JsonToEntity(string json)
+        public override MapResult JsonToEntity(string json)
         {
-            var result= JsonConvert.DeserializeObject<BaiduMapResult>(json);
+            var map= JsonConvert.DeserializeObject<BaiduMapResult>(json);
+
+            //转换为通用结果
+            var result = new MapResult();
+            result.count = map.results.Count.ToString() ;
+            result.status = map.status.ToString();
+            result.message = map.message;
+            result.list = map.results;
             return result;
         }
     }

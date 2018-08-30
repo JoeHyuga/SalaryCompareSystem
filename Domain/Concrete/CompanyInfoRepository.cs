@@ -27,6 +27,7 @@ namespace Domain.Concrete
                 entity.CompanyDescription = company.CompanyDescription;
                 entity.CompanyBuildDate = company.CompanyBuildDate;
                 entity.CompanyAddress = company.CompanyAddress;
+                entity.CompanyLocation = company.CompanyLocation;
             }
             var i= db.SaveChanges();
 

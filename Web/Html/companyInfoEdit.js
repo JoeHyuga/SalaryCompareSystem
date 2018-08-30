@@ -40,7 +40,8 @@
                 industry: $scope.industry,
                 build: $scope.build,
                 captial: $scope.captial,
-                address: $scope.address
+                address: $scope.address,
+                xy: $scope.location
             }, function (data) {
                 if (data.success) {
                     alert("保存成功");
@@ -67,5 +68,15 @@
                 $scope.$apply();
             }
         });
+    }
+
+    //获取地址的经纬坐标(经度，纬度)
+    $scope.GetLocation = function (lng, lat,address) {
+        $scope.location = lng + ";" + lat;
+        $scope.address = address;
+        $scope.AddressList = [];
+        if (!$scope.phase || !$scope.$root.phase) {
+            $scope.$apply();
+        }
     }
 });
