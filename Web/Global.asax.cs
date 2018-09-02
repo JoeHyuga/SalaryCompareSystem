@@ -28,6 +28,7 @@ namespace Web
             Assembly[] assemblies = Directory.GetFiles(AppDomain.CurrentDomain.RelativeSearchPath, "*.dll").Select(Assembly.LoadFrom).ToArray();
             //注册所有实现了 IDependency 接口的类型
             builder.RegisterAssemblyTypes(assemblies).Where(type => typeof(ICompanyInfoRepository).IsAssignableFrom(type) && !type.IsAbstract) .AsSelf().AsImplementedInterfaces().PropertiesAutowired().InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(assemblies).Where(type => typeof(ICompanyInfoDetailsRepository).IsAssignableFrom(type) && !type.IsAbstract).AsSelf().AsImplementedInterfaces().PropertiesAutowired().InstancePerLifetimeScope();
             //注册MVC类型
             // builder.RegisterControllers(assemblies).PropertiesAutowired();
             //注册Api类型

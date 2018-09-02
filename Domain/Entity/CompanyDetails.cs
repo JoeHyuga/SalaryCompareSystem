@@ -12,6 +12,10 @@ namespace Domain.Entity
         [Key]
         public int Id { get; set; }
         /// <summary>
+        /// 基本工资
+        /// </summary>
+        public string BaseSalary { get; set; }
+        /// <summary>
         /// 工资
         /// </summary>
         [Required]
@@ -23,22 +27,30 @@ namespace Domain.Entity
         /// <summary>
         /// 其他补助
         /// </summary>
-        public string OtherAllowance1 { get; set; }
+        public string TransportAllowance { get; set; }
         /// <summary>
         /// 其他补助
         /// </summary>
-        public string OtherAllowance2 { get; set; }
+        public string HousingAllowance { get; set; }
         /// <summary>
         /// 其他补助
         /// </summary>
-        public string OtherAllowance3 { get; set; }
+        public string FestivalAllowance { get; set; }
         /// <summary>
         /// 其他补助
         /// </summary>
-        public string OtherAllowance4 { get; set; }
+        public string TelAllowance { get; set; }
         /// <summary>
         /// 其他补助
         /// </summary>
-        public string OtherAllowance5 { get; set; }
+        public string OtherAllowance { get; set; }
+        /// <summary>
+        /// 年终奖
+        /// </summary>
+        public string YearAward { get; set; }
+        /// <summary>
+        /// 调薪次数
+        /// </summary>
+        public string RaiseSalaryTimes { get; set; }
     }
 }

@@ -2,6 +2,8 @@
 
 app.controller('CompanyController', function ($scope, $route) { $scope.$route = $route; })
 app.controller('CompanyEditController', function ($scope, $route) { $scope.$route = $route; })
+app.controller('CompanyInfoDetailsController', function ($scope, $route) { $scope.$route = $route; })
+app.controller('CompanyInfoDetailsEditController', function ($scope, $route) { $scope.$route = $route; })
 app.config(['$locationProvider', function ($locationProvider) {
     $locationProvider.hashPrefix('');
 }]);
@@ -14,6 +16,14 @@ app.config(function ($routeProvider) {
         when('/companyInfoEdit', {
             templateUrl: 'companyInfoEdit.html',
             controller: 'CompanyEditController'
+        }).
+        when('/companyInfoDetails', {
+            templateUrl: 'companyInfoDetails.html',
+            controller:'CompanyInfoDetailsController'
+        }).
+        when('/companyInfoDetailsEdit', {
+            templateUrl: 'companyInfoDetailsEdit.html',
+            controller: 'CompanyInfoDetailsEditController'
         }).
         otherwise({
             redirectTo: '/companyInfo'
@@ -29,18 +39,3 @@ app.factory('pageValueFactory', ['$rootScope', function ($rootScope) {
 
     return value;
 }]);
-//app.factory('valueFactory', function () {
-//    var object = [];
-//    var _setter = function (data) {
-//        object.push(data);
-//    };
-
-//    var _getter = function () {
-//        return object;
-//    };
-
-//    return {
-//        setter: _setter,
-//        getter: _getter
-//    }
-//});

@@ -51,8 +51,8 @@ namespace Common.Factory.MapFactory
                 //搜索结果
                 var i = new Result();
                 i.name = item.name;
-                i.location = item.loaction==null? new Location() { lat="0",lng="0"} : new Location() { lat = item.loaction.Split(',')[1], lng = item.loaction.Split(',')[0] };
-                i.uid = item.id;
+                i.location = item.location==null? new Location() { lat="0",lng="0"} : new Location() { lat = item.location.Split(',')[1], lng = item.location.Split(',')[0] };
+                i.uid = item.id.ToString();
                 i.address = item.address.ToString().Replace("[]","暂无地址详情") ;
                 i.province = item.district;
                 list.Add(i);

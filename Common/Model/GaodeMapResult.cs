@@ -29,7 +29,7 @@ namespace Common.Model
         /// <summary>
         /// 唯一Id
         /// </summary>
-        public string id { get; set; }
+        public object id { get; set; }
         /// <summary>
         /// 名称
         /// </summary>
@@ -41,7 +41,7 @@ namespace Common.Model
         /// <summary>
         /// 经纬度
         /// </summary>
-        public string loaction { get; set; }
+        public string location { get; set; }
         /// <summary>
         /// 所属区域
         /// </summary>

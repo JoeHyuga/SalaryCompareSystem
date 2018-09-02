@@ -17,6 +17,7 @@
                     <th>注册资金</th>
                     <th>公司地址</th>
                     <th>描述</th>
+                    <th>操作</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,8 @@
                     <td>{{x.RegisteredCapital}}</td>
                     <td>{{x.CompanyAddress}}</td>
                     <td>{{x.CompanyDescription}}</td>
+                    <td><input value="编辑详情" type="button"  ng-click="AddDetails(x.Id)" /></td>
+                    <td><input value="查看详情" type="button"  ng-click="ShowDetails(x.Id)" /></td>
                 </tr>
             </tbody>
         </table>

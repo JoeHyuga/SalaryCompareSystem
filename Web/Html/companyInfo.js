@@ -34,22 +34,20 @@
                     });
             }
         }
-        
+
     }
 
     $scope.Update = function () {
-        if ($scope.arryId.length>0) {
+        if ($scope.arryId.length > 0) {
             var value = {};
             value['Id'] = $scope.arryId.join(',');
-            $scope.$watch('components', function () {
-                pageValueFactory.update(value);
-            });
+            pageValueFactory.update(value);
 
             window.location = '#companyInfoEdit';
         }
     }
 
-    $scope.allck=false;
+    $scope.allck = false;
     $scope.SelectAll = function () {
         var cks = document.getElementsByName('ck');
         $scope.arryId.splice(0, $scope.arryId.length);
@@ -74,5 +72,20 @@
         else {
             $scope.arryId.splice($.inArray(id, $scope.arryId), 1);
         }
+    }
+
+    //查看公司详情
+    $scope.ShowDetails = function (id) {
+        var value = {};
+        value['Id'] = id;
+        pageValueFactory.update(value);
+        window.location = '#companyInfoDetails';
+    }
+    //添加公司详情
+    $scope.AddDetails = function (id) {
+        var value = {};
+        value['Id'] = id;
+        pageValueFactory.update(value);
+        window.location = '#companyInfoDetailsEdit';
     }
 });

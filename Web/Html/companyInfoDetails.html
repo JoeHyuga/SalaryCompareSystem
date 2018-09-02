@@ -1,0 +1,9 @@
+﻿<div ng-controller="CompanyInfoDetailsController">
+    <table class="table table-striped">
+        <tr><td colspan="4" style="text-align:center;font-size:25px">{{Info.CompanyName}}公司详情</td></tr>
+        <tr><td>成立时间</td><td>{{Info.CompanyBuildDate}}</td><td>注册资本</td><td>{{Info.RegisteredCapital}}</td></tr>
+        <tr><td>公司规模</td><td>{{Info.CompanySize}}</td><td>行业</td><td>{{Info.CompanyIndustry}}</td></tr>
+        <tr><td>公司地址</td><td colspan="3"><span ng-click="AddressDetails(Info.CompanyLocation)">{{Info.CompanyAddress}}</span></td></tr>
+        <tr><td>公司信息</td><td colspan="3">{{Info.CompanyDescription}}</td></tr>
+    </table>
+</div>

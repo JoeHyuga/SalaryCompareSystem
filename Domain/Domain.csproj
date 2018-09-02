@@ -47,10 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\CompanyInfoDetailsRepository.cs" />
     <Compile Include="Concrete\CompanyInfoRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Entity\CompanyDetails.cs" />
     <Compile Include="Entity\CompanyInfo.cs" />
+    <Compile Include="IConcrete\ICompanyInfoDetailsRepository.cs" />
     <Compile Include="IConcrete\ICompanyInfoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
