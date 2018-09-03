@@ -16,6 +16,10 @@ namespace Domain.Entity
         /// </summary>
         public string BaseSalary { get; set; }
         /// <summary>
+        /// 公司id
+        /// </summary>
+        public int CompanyId { get; set; }
+        /// <summary>
         /// 工资
         /// </summary>
         [Required]

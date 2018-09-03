@@ -11,14 +11,33 @@ namespace Domain.Concrete
     public class CompanyInfoDetailsRepository : ICompanyInfoDetailsRepository
     {
         EFDbContext db = new EFDbContext();
-        public bool EditCompanyInfoDetails(CompanyDetails entity)
+        public bool EditCompanyInfoDetails(CompanyDetails details)
         {
-            throw new NotImplementedException();
+            var entity = GetDetails(details.CompanyId);
+            if (entity == null)
+            {
+                db.dbCompanyDetails.Add(details);
+            }
+            else
+            {
+                entity.BaseSalary = details.BaseSalary;
+                entity.Salary = details.Salary;
+                entity.MealAllowance = details.MealAllowance;
+                entity.TelAllowance = details.TelAllowance;
+                entity.HousingAllowance = details.HousingAllowance;
+                entity.FestivalAllowance = details.FestivalAllowance;
+                entity.YearAward = details.YearAward;
+                entity.RaiseSalaryTimes = details.RaiseSalaryTimes;
+            }
+
+            var i = db.SaveChanges();
+
+            return i > 0 ? true : false;
         }
 
-        public CompanyDetails GetDetails(int Id)
+        public CompanyDetails GetDetails(int CompanyId)
         {
-            var entity = db.dbCompanyDetails.Where(p => p.Id == Id).FirstOrDefault();
+            var entity = db.dbCompanyDetails.Where(p => p.CompanyId == CompanyId).FirstOrDefault();
             return entity;
         }
     }

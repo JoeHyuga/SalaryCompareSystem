@@ -3,23 +3,21 @@
     //获取详情数据
     $scope.GetDetails = function () {
         var Id = pageValueFactory.components.Id;
-        //alert(Id);
-        $http({
-            method: 'GET',
-            url: '/api/ComanyInfoDetails/GetDetails',
-            //data: { Id: Id },
-            params: { Id: Id }
-        }).then(function success(response) {
-            if (response.data.success) {
-                $scope.Details = response.data.obj;
-                $scope.Info = response.data.rows[0];
-            }
-            else {
-                alert(response.data.message);
-            }
-            }, function errorCallback(response) {
-                console.log(response)
-        });
+        if (Id != undefined && Id != "") {
+            $.post('/api/CompanyInfo/GetCompanyInfo',
+                {
+                    Id: Id
+                }, function (data) {
+                    console.log(data);
+                    if (data.success) {
+                        $scope.Info = data.obj;
+                        $scope.$apply();
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                });
+        }
     }
     $scope.GetDetails();
 

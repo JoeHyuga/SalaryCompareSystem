@@ -15,15 +15,37 @@ namespace Web.Controllers
     {
         public ICompanyInfoDetailsRepository rep { get; set; }
 
-        public ICompanyInfoRepository repInfo { get; set; }
-
         [HttpPost]
         public ApiResult<DBNull, DBNull> CompanyInfoDetailsEdit()
         {
             var result = new ApiResult<DBNull, DBNull>();
             try
             {
+                var bsalary = HttpContext.Current.Request["bsalary"];
+                var salary = HttpContext.Current.Request["salary"];
+                var meal = HttpContext.Current.Request["meal"];
+                var tel = HttpContext.Current.Request["tel"];
+                var transport = HttpContext.Current.Request["transport"];
+                var housing = HttpContext.Current.Request["housing"];
+                var festival = HttpContext.Current.Request["festival"];
+                var yearaward = HttpContext.Current.Request["yearaward"];
+                var changetimes = HttpContext.Current.Request["changetimes"];
+                var id = HttpContext.Current.Request["Id"];
+                var details = new CompanyDetails()
+                {
+                    CompanyId=Convert.ToInt32(id),
+                    BaseSalary = bsalary,
+                    Salary=salary,
+                    MealAllowance=meal,
+                    TelAllowance=tel,
+                    TransportAllowance=transport,
+                    HousingAllowance=housing,
+                    FestivalAllowance=festival,
+                    YearAward=yearaward,
+                    RaiseSalaryTimes=changetimes
+                };
 
+                result.success=rep.EditCompanyInfoDetails(details);
             }
             catch (Exception ex)
             {
@@ -33,17 +55,14 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public ApiResult<CompanyDetails, CompanyInfo> GetDetails()
+        public ApiResult<CompanyDetails, DBNull> GetDetails()
         {
-            var result = new ApiResult<CompanyDetails, CompanyInfo>();
+            var result = new ApiResult<CompanyDetails, DBNull>();
             try
             {
                 var Id = HttpContext.Current.Request["Id"];
                 var details = rep.GetDetails(Convert.ToInt32(Id));
-                var info = new List<CompanyInfo>() { repInfo.GetCompanyInfo(Convert.ToInt32(Id)) } ;
-
                 result.obj = details;
-                result.rows = info;
                 result.success = true;
             }
             catch (Exception ex)
