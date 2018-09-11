@@ -29,19 +29,19 @@ namespace Domain.Entity
         /// </summary>
         public string MealAllowance { get; set; }
         /// <summary>
-        /// 其他补助
+        /// 交通补助
         /// </summary>
         public string TransportAllowance { get; set; }
         /// <summary>
-        /// 其他补助
+        /// 住房补助
         /// </summary>
         public string HousingAllowance { get; set; }
         /// <summary>
-        /// 其他补助
+        /// 节日补助
         /// </summary>
         public string FestivalAllowance { get; set; }
         /// <summary>
-        /// 其他补助
+        /// 通信补助
         /// </summary>
         public string TelAllowance { get; set; }
         /// <summary>

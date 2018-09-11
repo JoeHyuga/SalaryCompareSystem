@@ -22,7 +22,7 @@ namespace BLL
         /// 用高德地图api搜索地点
         /// </summary>
         /// <param name="address">搜索地点</param>
-        public static MapResult SearchAddress(string address)
+        public MapResult SearchAddress(string address)
         {
             var mapDll = WebConfigurationManager.AppSettings["MapDll"].ToString();
             var mapClass = WebConfigurationManager.AppSettings["MapClass"].ToString();

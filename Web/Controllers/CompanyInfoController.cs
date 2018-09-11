@@ -17,6 +17,7 @@ namespace Web.Controllers
     public class CompanyInfoController : ApiController
     {
         public ICompanyInfoRepository rep { get; set; }
+        CompanyBll bll = new CompanyBll();
 
         [HttpGet]
         public ApiResult<DBNull, CompanyInfo> GetCompanyInfoes()
@@ -128,7 +129,7 @@ namespace Web.Controllers
                 }
                 else
                 {
-                    var map=CompanyBll.SearchAddress(keywords);
+                    var map=bll.SearchAddress(keywords);
                     if (map.status == "0")
                     {
                         result.rows = map.list;

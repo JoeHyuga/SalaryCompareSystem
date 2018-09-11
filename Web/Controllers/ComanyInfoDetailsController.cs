@@ -1,4 +1,6 @@
-﻿using Common;
+﻿using BLL;
+using Common;
+using Common.Model;
 using Domain.Entity;
 using Domain.IConcrete;
 using System;
@@ -14,6 +16,7 @@ namespace Web.Controllers
     public class ComanyInfoDetailsController : ApiController
     {
         public ICompanyInfoDetailsRepository rep { get; set; }
+        CompanyDetailsBll bll = new CompanyDetailsBll();
 
         [HttpPost]
         public ApiResult<DBNull, DBNull> CompanyInfoDetailsEdit()
@@ -67,6 +70,29 @@ namespace Web.Controllers
             }
             catch (Exception ex)
             { result.message = ex.Message; }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 工资组成饼图数据
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ApiResult<DBNull, PieStructure> SalaryPie()
+        {
+            var result = new ApiResult<DBNull, PieStructure>();
+            try
+            {
+                var Id = HttpContext.Current.Request["Id"];
+                var entity = rep.GetDetails(Convert.ToInt32(Id));
+                result.rows=bll.SalaryPie(entity);
+                result.success = true;
+            }
+            catch (Exception ex)
+            {
+                result.message = ex.Message;
+            }
 
             return result;
         }

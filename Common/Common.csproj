@@ -56,6 +56,7 @@
     <Compile Include="Model\BaiduMapResult.cs" />
     <Compile Include="Model\GaodeMapResult.cs" />
     <Compile Include="Model\MapResult.cs" />
+    <Compile Include="Model\PieStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
