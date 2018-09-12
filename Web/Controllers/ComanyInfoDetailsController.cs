@@ -73,28 +73,5 @@ namespace Web.Controllers
 
             return result;
         }
-
-        /// <summary>
-        /// 工资组成饼图数据
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        public ApiResult<DBNull, PieStructure> SalaryPie()
-        {
-            var result = new ApiResult<DBNull, PieStructure>();
-            try
-            {
-                var Id = HttpContext.Current.Request["Id"];
-                var entity = rep.GetDetails(Convert.ToInt32(Id));
-                result.rows=bll.SalaryPie(entity);
-                result.success = true;
-            }
-            catch (Exception ex)
-            {
-                result.message = ex.Message;
-            }
-
-            return result;
-        }
     }
 }
