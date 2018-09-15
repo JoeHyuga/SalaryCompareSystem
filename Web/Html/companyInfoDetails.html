@@ -5,6 +5,9 @@
         <tr><td>公司规模</td><td>{{Info.CompanySize}}</td><td>行业</td><td>{{Info.CompanyIndustry}}</td></tr>
         <tr><td>公司地址</td><td colspan="3"><span ng-click="AddressDetails(Info.CompanyLocation)">{{Info.CompanyAddress}}</span></td></tr>
         <tr><td>公司信息</td><td colspan="3">{{Info.CompanyDescription}}</td></tr>
-        <tr><td>工资组成</td><td><div id="salaryPie" style="width: 600px;height:400px;"></div></td></tr>
+        <tr><td>工资组成</td><td><div id="salaryPie" style="width: 600px;height:400px;"></div></td>
+            <td>税后工资组成</td>
+            <td><div id="salaryPie1" style="width: 600px;height:400px;"></div></td>
+        </tr>
     </table>
 </div>

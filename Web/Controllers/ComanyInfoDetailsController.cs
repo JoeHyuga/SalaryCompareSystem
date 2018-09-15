@@ -73,5 +73,24 @@ namespace Web.Controllers
 
             return result;
         }
+
+        [HttpPost]
+        public ApiResult<AfterTaxSalary, DBNull> AfterTaxSalary()
+        {
+            var result = new ApiResult<AfterTaxSalary, DBNull>();
+            try
+            {
+                var Id = HttpContext.Current.Request["Id"];
+                var details = rep.GetDetails(Convert.ToInt32(Id));
+                result.obj = bll.AfterTaxSalary(details);
+                result.success = true;
+            }
+            catch (Exception ex)
+            {
+                result.message = ex.Message;
+            }
+
+            return result;
+        }
     }
 }
