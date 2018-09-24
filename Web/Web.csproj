@@ -130,6 +130,8 @@
     <Content Include="Global.asax" />
     <Content Include="Html\app.html" />
     <Content Include="Html\app.js" />
+    <Content Include="Html\companyCompare.html" />
+    <Content Include="Html\companyCompare.js" />
     <Content Include="Html\companyInfo.html" />
     <Content Include="Html\companyInfo.js" />
     <Content Include="Html\companyInfoDetails.html" />
@@ -1061,6 +1063,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ComanyInfoDetailsController.cs" />
+    <Compile Include="Controllers\CompanyCompareController.cs" />
     <Compile Include="Controllers\CompanyInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

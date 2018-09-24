@@ -1,0 +1,18 @@
+﻿<div ng-controller="CompanyCompareController">
+    <table>
+        <tr>
+            <td ng-repeat="x in Infos"><input type="checkbox" ng-model="x.Id" ng-click="Select(x.Id)" value="{{x.Id}}" />{{x.CompanyName}}</td>
+        </tr>
+        <tr>
+            <td><input type="button" value="税前工资" ng-click="Compare('BeforeTaxSalaryCompare')" /></td>
+            <td><input type="button" value="税后工资" /></td>
+        </tr>
+        <tr>开始比较</tr>
+        <tr>
+            <td>
+
+                <div id="salaryPie1"></div>
+            </td>
+        </tr>
+    </table>
+</div>

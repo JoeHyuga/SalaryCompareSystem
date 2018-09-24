@@ -56,9 +56,21 @@
     <Compile Include="JsonHelper.cs" />
     <Compile Include="Model\AfterTaxSalary.cs" />
     <Compile Include="Model\BaiduMapResult.cs" />
+    <Compile Include="Model\ChartBarModel.cs" />
     <Compile Include="Model\GaodeMapResult.cs" />
     <Compile Include="Model\MapResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy\CompanyCompareStrategy\AfterTaxSalaryCompare.cs" />
+    <Compile Include="Strategy\CompanyCompareStrategy\BeforeTaxSalaryCompare.cs" />
+    <Compile Include="Strategy\CompanyCompareStrategy\CompareTemplate.cs" />
+    <Compile Include="Strategy\CompanyCompareStrategy\ICompare.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{F19BEAB0-2BF7-4025-BE31-1740D4547CEB}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

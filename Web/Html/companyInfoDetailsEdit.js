@@ -19,7 +19,6 @@
                         $scope.festival = response.data.obj.FestivalAllowance;
                         $scope.yearaward = response.data.obj.YearAward;
                         $scope.changetimes = response.data.obj.RaiseSalaryTimes;
-                        $scope.$apply();
                     }
                 }
                 else {

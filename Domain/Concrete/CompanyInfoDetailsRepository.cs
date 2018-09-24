@@ -28,6 +28,7 @@ namespace Domain.Concrete
                 entity.FestivalAllowance = details.FestivalAllowance;
                 entity.YearAward = details.YearAward;
                 entity.RaiseSalaryTimes = details.RaiseSalaryTimes;
+                entity.TransportAllowance = details.TransportAllowance;
             }
 
             var i = db.SaveChanges();

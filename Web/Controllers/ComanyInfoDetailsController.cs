@@ -73,7 +73,10 @@ namespace Web.Controllers
 
             return result;
         }
-
+        /// <summary>
+        /// 计算税后工资
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public ApiResult<AfterTaxSalary, DBNull> AfterTaxSalary()
         {

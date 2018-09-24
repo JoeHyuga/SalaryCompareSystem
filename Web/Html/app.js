@@ -4,6 +4,7 @@ app.controller('CompanyController', function ($scope, $route) { $scope.$route = 
 app.controller('CompanyEditController', function ($scope, $route) { $scope.$route = $route; })
 app.controller('CompanyInfoDetailsController', function ($scope, $route) { $scope.$route = $route; })
 app.controller('CompanyInfoDetailsEditController', function ($scope, $route) { $scope.$route = $route; })
+app.controller('CompanyCompareController', function ($scope, $route) { $scope.$route = $route; })
 app.config(['$locationProvider', function ($locationProvider) {
     $locationProvider.hashPrefix('');
 }]);
@@ -24,6 +25,10 @@ app.config(function ($routeProvider) {
         when('/companyInfoDetailsEdit', {
             templateUrl: 'companyInfoDetailsEdit.html',
             controller: 'CompanyInfoDetailsEditController'
+        }).
+        when('/companyCompare', {
+            templateUrl: 'companyCompare.html',
+            controller: 'CompanyCompareController'
         }).
         otherwise({
             redirectTo: '/companyInfo'

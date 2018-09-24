@@ -1,5 +1,6 @@
 ﻿using Common;
 using Common.Model;
+using Common.Strategy.CompanyCompareStrategy;
 using Domain.Entity;
 using System;
 using System.Collections.Generic;
