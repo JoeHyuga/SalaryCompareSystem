@@ -1,4 +1,5 @@
-﻿using Common.Strategy.CompanyCompareStrategy;
+﻿using Common.Model;
+using Common.Strategy.CompanyCompareStrategy;
 using Domain.Entity;
 using Domain.IConcrete;
 using System;
@@ -11,7 +12,7 @@ namespace BLL
 {
     public class CompanyCompareBll
     {
-        public void CompanyCompare(string compareClass,List<CompanyDetails> list)
+        public List<ChartModel> CompanyCompare(string compareClass,List<CompanyDetails> list)
         {
             var template = CompareTemplate.CreateComparable(new BeforeTaxSalaryCompare());
 
@@ -20,7 +21,13 @@ namespace BLL
                 case "AfterTaxSalaryCompare":
                     template = CompareTemplate.CreateComparable(new AfterTaxSalaryCompare());
                     break;
+                case "BeforeTaxSalaryCompare":
+                    template = CompareTemplate.CreateComparable(new BeforeTaxSalaryCompare());
+                    break;
             }
+
+            var result= template.Compare(list);
+            return result;
         }
     }
 }

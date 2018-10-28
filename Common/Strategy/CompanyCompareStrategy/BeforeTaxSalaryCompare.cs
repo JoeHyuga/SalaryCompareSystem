@@ -10,12 +10,12 @@ namespace Common.Strategy.CompanyCompareStrategy
 {
     public class BeforeTaxSalaryCompare : ICompanyCompare
     {
-        public List<ChartBarModel> CompanyCompare(List<CompanyDetails> list)
+        public List<ChartModel> CompanyCompare(List<CompanyDetails> list)
         {
-            List<ChartBarModel> modelList = new List<ChartBarModel>();
-            var yearData =new int[modelList.Count];
-            var salaryData = new int[modelList.Count];
-            var mealData = new int[modelList.Count];
+            List<ChartModel> modelList = new List<ChartModel>();
+            var yearData =new int[list.Count];
+            var salaryData = new int[list.Count];
+            var mealData = new int[list.Count];
 
             for (int i = 0; i < list.Count; i++)
             {

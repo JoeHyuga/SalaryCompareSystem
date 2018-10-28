@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Common.Model
 {
-    public class ChartBarModel : ChartModel
+    public class ChartModel
     {
-        public int barGap { get; set; }
+        public string name { get; set; }
 
-        public int[] data { get; set; }
+        public string type { get; set; }
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="Model\AfterTaxSalary.cs" />
     <Compile Include="Model\BaiduMapResult.cs" />
     <Compile Include="Model\ChartBarModel.cs" />
+    <Compile Include="Model\ChartModel.cs" />
     <Compile Include="Model\GaodeMapResult.cs" />
     <Compile Include="Model\MapResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

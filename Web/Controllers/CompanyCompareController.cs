@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Common;
+using Common.Model;
 using Domain.Entity;
 using Domain.IConcrete;
 using System;
@@ -22,16 +23,23 @@ namespace Web.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ApiResult<DBNull, DBNull> CompanyCompare()
+        public ApiResult<DBNull, ChartModel> CompanyCompare()
         {
-            var result = new ApiResult<DBNull, DBNull>();
+            var result = new ApiResult<DBNull, ChartModel>();
             try
             {
                 string compareClass = HttpContext.Current.Request["compareClass"];
                 string Ids = HttpContext.Current.Request["Ids"];
-                List<CompanyDetails> list = new List<CompanyDetails>();
+                var list = new List<CompanyDetails>();
+                var arryId = Ids.Split(',');
 
-                bll.CompanyCompare(compareClass, list);
+                foreach (string Id in arryId)
+                {
+                    list.Add(rep.GetDetails(Convert.ToInt32(Id)));
+                }
+
+                result.rows = bll.CompanyCompare(compareClass, list);
+                result.success = true;
             }
             catch (Exception ex)
             {

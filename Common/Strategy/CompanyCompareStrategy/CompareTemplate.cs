@@ -1,4 +1,5 @@
-﻿using Domain.Entity;
+﻿using Common.Model;
+using Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,9 +40,9 @@ namespace Common.Strategy.CompanyCompareStrategy
             this._comparable = setCompare;
         }
 
-        public void Compare(List<CompanyDetails> Ids)
+        public List<ChartModel> Compare(List<CompanyDetails> Ids)
         {
-            this._comparable.CompanyCompare(Ids);
+            return this._comparable.CompanyCompare(Ids);
         }
     }
 }
