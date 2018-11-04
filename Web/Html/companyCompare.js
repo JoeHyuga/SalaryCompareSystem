@@ -54,6 +54,4 @@
         myChart.setOption(option);
         $scope.charts.push(myChart);
     }
-
-    $scope.ChartData();
 });
