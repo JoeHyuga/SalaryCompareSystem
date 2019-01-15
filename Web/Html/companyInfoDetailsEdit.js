@@ -22,7 +22,7 @@
                     }
                 }
                 else {
-                    alert(response.data.message);
+                    layer.msg(response.data.message);
                 }
             }, function errorCallback(response) {
                 console.log(response)
@@ -46,11 +46,13 @@
                 changetimes: $scope.changetimes
             }, function (data) {
                 if (data.success) {
-                    alert('保存成功');
-                    window.location = '#home';
+                    layer.msg('保存成功', function () {
+                        window.location = '#home';
+                    })
+                    
                 }
                 else {
-                    alert(data.message);
+                    layer.msg(data.message);
                 }
             }
         );

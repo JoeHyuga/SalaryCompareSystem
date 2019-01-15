@@ -50,9 +50,9 @@
             <label for="lastname" class="col-sm-2 control-label">地址</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" ng-model="address" ng-change="SearchAddress()" placeholder="请输入地址">
-                    <ul class="list-group">
-                        <li style="cursor:pointer" class="list-group-item" ng-repeat="address in AddressList" ng-click="GetLocation(address.location.lng,address.location.lat,address.name)">{{address.name}}<span class="text-muted" style="padding-left:5px;font-size:5px">{{address.address}}</span></li>
-                    </ul>
+                <ul class="list-group">
+                    <li style="cursor:pointer" class="list-group-item" ng-repeat="address in AddressList" ng-click="GetLocation(address.location.lng,address.location.lat,address.name)">{{address.name}}<span class="text-muted" style="padding-left:5px;font-size:5px">{{address.address}}</span></li>
+                </ul>
             </div>
         </div>
         <div class="form-group">
