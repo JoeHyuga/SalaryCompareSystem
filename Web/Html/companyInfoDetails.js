@@ -10,7 +10,7 @@
                         $scope.$apply();
                     }
                     else {
-                        alert(data.message);
+                        layer.msg(data.message);
                     }
                 });
     }
@@ -138,7 +138,7 @@
                     $scope.charts.push(myChart);
                 }
                 else {
-                    alert(data.message);
+                    layer.msg(data.message);
                 }
             });
     }

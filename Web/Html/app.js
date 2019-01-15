@@ -41,6 +41,5 @@ app.factory('pageValueFactory', ['$rootScope', function ($rootScope) {
         this.components = angular.copy(v);
         $rootScope.$broadcast('pageValue');
     };
-
     return value;
 }]);

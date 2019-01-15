@@ -8,7 +8,7 @@
                 $scope.Infos = response.data.rows;
             }
             else {
-                alert(response.data.message);
+                layer.msg(response.data.message);
             }
         }, function errorCallback(response) {
 
@@ -28,7 +28,7 @@
                             //alert("删除成功");
                         }
                         else {
-                            alert(data.message);
+                            layer.msg(data.message);
                         }
                         $scope.LoadDate();
                     });

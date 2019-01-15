@@ -9,7 +9,7 @@
                 $scope.Infos = response.data.rows;
             }
             else {
-                alert(response.data.message);
+                layer.msg(response.data.message);
             }
         }, function errorCallback(response) {
 
@@ -40,7 +40,7 @@
 
                 }
                 else {
-                    alert(data.message);
+                    layer.msg(data.message);
                 }
                 $scope.LoadDate();
             });
