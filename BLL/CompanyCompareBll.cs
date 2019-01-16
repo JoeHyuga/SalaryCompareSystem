@@ -12,7 +12,7 @@ namespace BLL
 {
     public class CompanyCompareBll
     {
-        public List<ChartModel> CompanyCompare(string compareClass,List<CompanyDetails> list)
+        public ChartModel CompanyCompare(string compareClass,List<CompanyDetails> list)
         {
             var template = CompareTemplate.CreateComparable(new BeforeTaxSalaryCompare());
 

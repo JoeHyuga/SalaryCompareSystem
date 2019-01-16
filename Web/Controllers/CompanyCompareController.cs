@@ -23,9 +23,9 @@ namespace Web.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ApiResult<DBNull, ChartModel> CompanyCompare()
+        public ApiResult<ChartModel, DBNull> CompanyCompare()
         {
-            var result = new ApiResult<DBNull, ChartModel>();
+            var result = new ApiResult<ChartModel, DBNull>();
             try
             {
                 string compareClass = HttpContext.Current.Request["compareClass"];
@@ -38,7 +38,7 @@ namespace Web.Controllers
                     list.Add(rep.GetDetails(Convert.ToInt32(Id)));
                 }
 
-                result.rows = bll.CompanyCompare(compareClass, list);
+                result.obj = bll.CompanyCompare(compareClass, list);
                 result.success = true;
             }
             catch (Exception ex)
