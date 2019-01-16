@@ -40,7 +40,7 @@ namespace Common.Strategy.CompanyCompareStrategy
             this._comparable = setCompare;
         }
 
-        public List<ChartModel> Compare(List<CompanyDetails> Ids)
+        public ChartModel Compare(List<CompanyDetails> Ids)
         {
             return this._comparable.CompanyCompare(Ids);
         }

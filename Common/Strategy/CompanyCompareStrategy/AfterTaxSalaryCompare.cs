@@ -10,7 +10,7 @@ namespace Common.Strategy.CompanyCompareStrategy
 {
     public class AfterTaxSalaryCompare : ICompanyCompare
     {
-        public List<ChartModel> CompanyCompare(List<CompanyDetails> Ids)
+        public ChartModel CompanyCompare(List<CompanyDetails> Ids)
         {
             throw new NotImplementedException();
         }
