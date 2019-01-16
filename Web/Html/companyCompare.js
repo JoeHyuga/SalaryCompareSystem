@@ -21,7 +21,9 @@
     $scope.Select = function (id) {
         var obj = document.getElementById("ck" + id);
         if (obj.checked) {
-            $scope.arryId.push(id);
+            if ($scope.arryId.indexOf(id)==-1) {
+                $scope.arryId.push(id);
+            }
         }
         else {
             $scope.arryId.splice($.inArray(id, $scope.arryId), 1);
@@ -48,9 +50,10 @@
 
     $scope.charts = [];
     $scope.ChartData = function (data) {
+        var dom=document.getElementById('salaryPie1')
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('salaryPie1'));
-        
+        var myChart = echarts.init(dom);
+
         app.config = {
             rotate: 90,
             align: 'left',

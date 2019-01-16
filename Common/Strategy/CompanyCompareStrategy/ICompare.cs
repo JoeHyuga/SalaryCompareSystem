@@ -10,6 +10,6 @@ namespace Common.Strategy.CompanyCompareStrategy
 {
     public interface ICompanyCompare
     {
-        ChartModel CompanyCompare(List<CompanyDetails> Ids);
+        ChartModel CompanyCompare(List<CompanyDetails> Ids, List<CompanyInfo> infos);
     }
 }

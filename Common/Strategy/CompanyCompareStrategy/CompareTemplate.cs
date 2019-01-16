@@ -21,17 +21,17 @@ namespace Common.Strategy.CompanyCompareStrategy
 
         public static CompareTemplate CreateComparable(ICompanyCompare compare)
         {
-            if (null == _compareTemplate)
-            {
-                lock (lockObj)
-                {
-                    if (null == _compareTemplate)
-                    {
-                        _compareTemplate = new CompareTemplate(compare);
-                    }
-                }
-            }
-
+            //if (null == _compareTemplate)
+            //{
+            //    lock (lockObj)
+            //    {
+            //        if (null == _compareTemplate)
+            //        {
+            //            _compareTemplate = new CompareTemplate(compare);
+            //        }
+            //    }
+            //}
+            _compareTemplate = new CompareTemplate(compare);
             return _compareTemplate;
         }
 
@@ -40,9 +40,9 @@ namespace Common.Strategy.CompanyCompareStrategy
             this._comparable = setCompare;
         }
 
-        public ChartModel Compare(List<CompanyDetails> Ids)
+        public ChartModel Compare(List<CompanyDetails> Ids,List<CompanyInfo> infos)
         {
-            return this._comparable.CompanyCompare(Ids);
+            return this._comparable.CompanyCompare(Ids,infos);
         }
     }
 }
