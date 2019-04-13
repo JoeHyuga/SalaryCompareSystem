@@ -1,8 +1,10 @@
 ﻿app.controller('CompanyEditController', function ($scope, $http, pageValueFactory) {
+    $scope.berror = false;
+    $errormsg = "";
     $scope.GetCompanyInfo = function () {
         var Id = pageValueFactory.components.Id;
         $scope.Id = Id;
-        if (Id != undefined&&Id!="") {
+        if (Id != undefined && Id != "") {
             $.post('/api/CompanyInfo/GetCompanyInfo',
                 {
                     Id: Id
@@ -19,10 +21,10 @@
                         $scope.$apply();
                     }
                     else {
-                        alert(data.message);
+                        layer.msg(data.message);
                     }
                 });
-            
+
         }
     }
     $scope.GetCompanyInfo();
@@ -44,11 +46,12 @@
                 xy: $scope.location
             }, function (data) {
                 if (data.success) {
-                    alert("保存成功");
-                    window.location = '#home';
+                    layer.msg("保存成功", function () {
+                        window.location = '#home';
+                    });
                 }
                 else {
-                    alert("保存失败");
+                    layer.msg("保存失败");
                 }
             });
     }
@@ -62,7 +65,7 @@
                 $scope.AddressList = data.rows;
             }
             else {
-                alert(data.message);
+                layer.msg(data.message);
             }
             if (!$scope.phase || !$scope.$root.phase) {
                 $scope.$apply();
@@ -71,7 +74,7 @@
     }
 
     //获取地址的经纬坐标(经度，纬度)
-    $scope.GetLocation = function (lng, lat,address) {
+    $scope.GetLocation = function (lng, lat, address) {
         $scope.location = lng + ";" + lat;
         $scope.address = address;
         $scope.AddressList = [];

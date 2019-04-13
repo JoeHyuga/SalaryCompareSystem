@@ -16,6 +16,7 @@ namespace Web.Controllers
     public class CompanyCompareController : ApiController
     {
         public ICompanyInfoDetailsRepository rep { get; set; }
+        public ICompanyInfoRepository inforep { get; set; }
         CompanyCompareBll bll = new CompanyCompareBll();
 
         /// <summary>
@@ -23,22 +24,24 @@ namespace Web.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public ApiResult<DBNull, ChartModel> CompanyCompare()
+        public ApiResult<ChartModel, DBNull> CompanyCompare()
         {
-            var result = new ApiResult<DBNull, ChartModel>();
+            var result = new ApiResult<ChartModel, DBNull>();
             try
             {
                 string compareClass = HttpContext.Current.Request["compareClass"];
                 string Ids = HttpContext.Current.Request["Ids"];
-                var list = new List<CompanyDetails>();
+                var detaillist = new List<CompanyDetails>();
+                var infolist = new List<CompanyInfo>();
                 var arryId = Ids.Split(',');
 
                 foreach (string Id in arryId)
                 {
-                    list.Add(rep.GetDetails(Convert.ToInt32(Id)));
+                    detaillist.Add(rep.GetDetails(Convert.ToInt32(Id)));
+                    infolist.Add(inforep.GetCompanyInfo(Convert.ToInt32(Id)));
                 }
 
-                result.rows = bll.CompanyCompare(compareClass, list);
+                result.obj = bll.CompanyCompare(compareClass, detaillist, infolist);
                 result.success = true;
             }
             catch (Exception ex)

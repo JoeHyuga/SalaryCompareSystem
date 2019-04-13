@@ -128,17 +128,29 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap1.css" />
     <Content Include="Global.asax" />
-    <Content Include="Html\app.html" />
+    <Content Include="Html\app.html">
+      <DependentUpon>app.js</DependentUpon>
+    </Content>
     <Content Include="Html\app.js" />
-    <Content Include="Html\companyCompare.html" />
+    <Content Include="Html\companyCompare.html">
+      <DependentUpon>companyCompare.js</DependentUpon>
+    </Content>
     <Content Include="Html\companyCompare.js" />
-    <Content Include="Html\companyInfo.html" />
+    <Content Include="Html\companyInfo.html">
+      <DependentUpon>companyInfo.js</DependentUpon>
+    </Content>
     <Content Include="Html\companyInfo.js" />
-    <Content Include="Html\companyInfoDetails.html" />
+    <Content Include="Html\companyInfoDetails.html">
+      <DependentUpon>companyInfoDetails.js</DependentUpon>
+    </Content>
     <Content Include="Html\companyInfoDetails.js" />
-    <Content Include="Html\companyInfoDetailsEdit.html" />
+    <Content Include="Html\companyInfoDetailsEdit.html">
+      <DependentUpon>companyInfoDetailsEdit.js</DependentUpon>
+    </Content>
     <Content Include="Html\companyInfoDetailsEdit.js" />
-    <Content Include="Html\companyInfoEdit.html" />
+    <Content Include="Html\companyInfoEdit.html">
+      <DependentUpon>companyInfoEdit.js</DependentUpon>
+    </Content>
     <Content Include="Html\companyInfoEdit.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -202,6 +214,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\jq.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
@@ -945,6 +958,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\ng-common.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />

@@ -10,44 +10,24 @@ namespace Common.Strategy.CompanyCompareStrategy
 {
     public class BeforeTaxSalaryCompare : ICompanyCompare
     {
-        public List<ChartModel> CompanyCompare(List<CompanyDetails> list)
+        public ChartModel CompanyCompare(List<CompanyDetails> details, List<CompanyInfo> infos)
         {
-            List<ChartModel> modelList = new List<ChartModel>();
-            var yearData =new int[list.Count];
-            var salaryData = new int[list.Count];
-            var mealData = new int[list.Count];
-
-            for (int i = 0; i < list.Count; i++)
+            var model = new ChartModel();
+            model.title = "before";
+            model.xName = "m";
+            model.xData = new string[] { "S","Base","meal"};
+            model.yName = "项目";
+            var serieslist = new List<series>();
+            foreach (CompanyDetails detail in details)
             {
-                yearData[i] = Convert.ToInt32(list[i].YearAward);
-                salaryData[i]= Convert.ToInt32(list[i].Salary);
-                mealData[i] = Convert.ToInt32(list[i].MealAllowance);
+                var s = new series();
+                s.name = infos.Where(p => p.Id == detail.CompanyId).ToList()[0].CompanyName;
+                s.type = "bar";
+                s.data = new string[] { detail.Salary, detail.BaseSalary, detail.MealAllowance };
+                serieslist.Add(s);
             }
-            modelList.Add(new ChartBarModel()
-            {
-                name = "年终奖",
-                type = "bar",
-                barGap = 0,
-                data = yearData
-            });
-
-            modelList.Add(new ChartBarModel()
-            {
-                name = "工资",
-                type = "bar",
-                barGap = 0,
-                data = salaryData
-            });
-
-            modelList.Add(new ChartBarModel()
-            {
-                name = "餐补",
-                type = "bar",
-                barGap = 0,
-                data = mealData
-            });
-
-            return modelList;
+            model.series =serieslist;
+            return model;
         }
     }
 }
